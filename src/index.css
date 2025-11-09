@@ -1,0 +1,38 @@
+
+/* Load Tailwind (v4 syntax) */
+@import "tailwindcss";
+
+/* Load fonts (this import is correct — keep it below tailwindcss) */
+
+
+/* Set global brand fonts */
+:root {
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+}
+/* Soft parallax scale effect */
+.marquee-item {
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.marquee-item:hover {
+  transform: scale(1.12);
+}
+
+/* Default body styling */
+body {
+  font-family: var(--font-body);
+  color: #6E3D2E;
+  background-color: #FFFDFC;
+}
+
+/* Utility class for heading font */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Smooth scrolling for hash links */
+/* html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+} */

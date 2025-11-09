@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import HeroSection from "/Users/sumitgurbani_13/Desktop/mayahomes/shree-maya-homes/src/components/HeroSection.jsx";
+import HeroSection from "../components/HeroSection.jsx";
 import BedsheetsPage from "../pages/BedsheetsPage";
 import BathLinenPage from "../pages/BathLinenPage";
 

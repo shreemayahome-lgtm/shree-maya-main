@@ -1,14 +1,12 @@
-
 /* Load Tailwind (v4 syntax) */
 @import "tailwindcss";
 
 /* Load fonts (this import is correct — keep it below tailwindcss) */
 
-
 /* Set global brand fonts */
 :root {
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
 }
 /* Soft parallax scale effect */
 .marquee-item {
@@ -22,8 +20,8 @@
 /* Default body styling */
 body {
   font-family: var(--font-body);
-  color: #6E3D2E;
-  background-color: #FFFDFC;
+  color: #6e3d2e;
+  background-color: #fffdfc;
 }
 
 /* Utility class for heading font */

@@ -1,6 +1,3 @@
-// src/components/DesktopMoreDropdown.jsx
-import { FiChevronDown } from "react-icons/fi";
-import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const BRAND_BROWN = "#9a4d2e";
@@ -23,11 +20,9 @@ export function DesktopMoreDropdown() {
         ["blankets", "BLANKETS"],
         ["mats", "BATH MATS"],
       ].map(([id, label]) => (
-        
         <Link
           key={id}
           to={id === "mats" ? `/bath-linen#${id}` : `/bedsheets#${id}`}
-          
           className="block px-4 py-3 uppercase text-[14px] tracking-wide hover:text-white hover:bg-[#9a4d2e] transition-colors"
         >
           {label}

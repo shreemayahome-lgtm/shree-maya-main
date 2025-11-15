@@ -7,12 +7,42 @@ import { Link } from "react-router-dom";
 const BRAND_BROWN = "#9a4d2e";
 
 const categories = [
-  { title: "Bath Mats", image: "/bathMat.avif" ,link:"/bath-linen#mats" ,description: "Soft & absorbent for hotel & home bathrooms." },
-  { title: "Pillows", image: "/pillows.avif",link:"/bedsheets#pillow-covers", description: "Premium fill, perfect support & comfort." },
-  { title: "Pillow Covers", image: "/pillowCovers.avif",link:"/bedsheets#pillow-covers", description: "Smooth fabrics crafted for durability."  },
-  { title: "Blankets", image: "/blankets.avif",link:"/bedsheets#duvets" ,description: "Warm, breathable & hotel-grade."  },
-  { title: "Duvets", image: "/duvets.avif",link:"/bedsheets#duvets", description: "Soft-touch duvets curated for hospitality."  },
-  { title: "Comforters", image: "/extra.avif" ,link:"/bedsheets#duvets", description: "Luxurious and lightweight layering comfort." },
+  {
+    title: "Bath Mats",
+    image: "/bathMat.avif",
+    link: "/bath-linen#mats",
+    description: "Soft & absorbent for hotel & home bathrooms.",
+  },
+  {
+    title: "Pillows",
+    image: "/pillows.avif",
+    link: "/bedsheets#pillow-covers",
+    description: "Premium fill, perfect support & comfort.",
+  },
+  {
+    title: "Pillow Covers",
+    image: "/pillowCovers.avif",
+    link: "/bedsheets#pillow-covers",
+    description: "Smooth fabrics crafted for durability.",
+  },
+  {
+    title: "Blankets",
+    image: "/blankets.avif",
+    link: "/bedsheets#duvets",
+    description: "Warm, breathable & hotel-grade.",
+  },
+  {
+    title: "Duvets",
+    image: "/duvets.avif",
+    link: "/bedsheets#duvets",
+    description: "Soft-touch duvets curated for hospitality.",
+  },
+  {
+    title: "Comforters",
+    image: "/extra.avif",
+    link: "/bedsheets#duvets",
+    description: "Luxurious and lightweight layering comfort.",
+  },
 ];
 
 export default function MoreCategories() {
@@ -34,9 +64,10 @@ export default function MoreCategories() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-14">
         {categories.map((cat, index) => (
           <Link
-          to={cat.link}
-          key={index}
-          className="relative group h-[260px] rounded-xl overflow-hidden cursor-pointer block">
+            to={cat.link}
+            key={index}
+            className="relative group h-[260px] rounded-xl overflow-hidden cursor-pointer block"
+          >
             <motion.img
               src={cat.image}
               className="w-full h-full object-cover transition-transform duration-500"

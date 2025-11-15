@@ -10,7 +10,7 @@ export default function BathLinenPage() {
   useEffect(() => {
     // Always start at top first
     window.scrollTo(0, 0);
-  
+
     // Allow the fade animation to complete before scrolling to a section
     const timeout = setTimeout(() => {
       if (location.hash) {
@@ -21,7 +21,7 @@ export default function BathLinenPage() {
       }
       document.body.style.overflow = "auto";
     }, 600); // match your PageFade animation duration
-  
+
     return () => {
       document.body.style.overflow = "auto";
       clearTimeout(timeout);
@@ -111,54 +111,84 @@ export default function BathLinenPage() {
         </h2>
 
         {/* Bath Towel SECTION */}
-  <h3 id="bath-towel" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Bath Towel</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(0, 5).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
+        <h3
+          id="bath-towel"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Bath Towel
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(0, 5).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
 
-  {/* Face Towel SECTION */}
-  <h3 id="face-towel" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Face Towel </h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(5, 6).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
-  {/* hand Towel SECTION */}
-  <h3 id="hand-towel" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Hand Towel (Queen)</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(6, 7).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
-  {/*  bath mats SECTION */}
-  <h3 id="bath-mat" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Bath Mats (Queen)</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(7, 8).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
-  {/* Bathrobe SECTION */}
-  <h3 id="bathrobe" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Bathrobes (Queen)</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(8, 9).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
-  {/* Bath Mat SECTION */}
-  <h3 id="mats" className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
-        style={{ color: "#9a4d2e" }}>Bath Mats </h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-    {towelProducts.slice(9, 10).map((p, i) => (
-      <ProductCard2 key={i} {...p} />
-    ))}
-  </div>
+        {/* Face Towel SECTION */}
+        <h3
+          id="face-towel"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Face Towel{" "}
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(5, 6).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
+        {/* hand Towel SECTION */}
+        <h3
+          id="hand-towel"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Hand Towel (Queen)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(6, 7).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
+        {/*  bath mats SECTION */}
+        <h3
+          id="bath-mat"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Bath Mats (Queen)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(7, 8).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
+        {/* Bathrobe SECTION */}
+        <h3
+          id="bathrobe"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Bathrobes (Queen)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(8, 9).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
+        {/* Bath Mat SECTION */}
+        <h3
+          id="mats"
+          className="scroll-mt-[90px] font-semibold mt-16 font-playfair text-2xl md:text-3xl tracking-wide"
+          style={{ color: "#9a4d2e" }}
+        >
+          Bath Mats{" "}
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {towelProducts.slice(9, 10).map((p, i) => (
+            <ProductCard2 key={i} {...p} />
+          ))}
+        </div>
       </div>
     </PageFade>
   );

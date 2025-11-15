@@ -21,7 +21,10 @@ export default function ProductCategories() {
   }, [location]);
   const BRAND_BROWN = "#9A4D2E";
   return (
-    <section id="collections" className="scroll-mt-[60px] max-w-7xl mx-auto px-6 py-9 md:py-11">
+    <section
+      id="collections"
+      className="scroll-mt-[60px] max-w-7xl mx-auto px-6 py-9 md:py-11"
+    >
       {/* Section Heading */}
       <h2
         className="font-playfair text-3xl md:text-5xl text-center tracking-wide"

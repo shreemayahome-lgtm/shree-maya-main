@@ -45,7 +45,7 @@ export default function ProductCategories() {
           className="relative group h-[260px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer"
         >
           <img
-            src="/bg4.avif"
+            src="/banner-4.avif"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 "
           />
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-2xl md:text-3xl font-semibold tracking-wide text-center">

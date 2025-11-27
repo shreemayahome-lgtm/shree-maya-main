@@ -33,7 +33,7 @@ export default function Footer() {
           <ul className="space-y-1.5 text-sm">
             <li>
               <Link
-                to="/bedsheets#single-bedsheets"
+                to="/bedsheets#bedsheets"
                 className="hover:underline underline-offset-4"
               >
                 Bedsheets
@@ -41,26 +41,26 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                to="/bedsheets#pillow-cases"
+                className="hover:underline underline-offset-4"
+              >
+                Pillow Cases
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/bedsheets#duvets"
                 className="hover:underline underline-offset-4"
               >
-                Duvet Covers
+                Duvets
               </Link>
             </li>
             <li>
               <Link
-                to="/bedsheets#pillow-covers"
+                to="/bedsheets#pillows"
                 className="hover:underline underline-offset-4"
               >
-                Pillow Covers
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/bedsheets#mattress-protector"
-                className="hover:underline underline-offset-4"
-              >
-                Protectors
+                Pillows
               </Link>
             </li>
           </ul>

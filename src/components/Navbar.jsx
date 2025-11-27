@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import { FiMenu, FiX, FiPhone, FiChevronDown } from "react-icons/fi";
 import { DesktopMoreDropdown } from "./DesktopMoreDropdown";
@@ -35,21 +34,35 @@ export default function Navbar() {
       section?.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const bedsheetsMenu = [
+    { id: "bedsheets", label: "BEDSHEETS", link: "/bedsheets#bedsheets" },
+    {
+      id: "pillow-cases",
+      label: "PILLOW CASES",
+      link: "/bedsheets#pillow-cases",
+    },
+    { id: "duvets", label: "DUVETS", link: "/bedsheets#duvets" },
+    { id: "pillows", label: "PILLOWS", link: "/bedsheets#pillows" },
+  ];
+
+  const bathLinenMenu = [
+    { id: "mats", label: "BATH MATS", link: "/bath-linen#mats" },
+    { id: "bath-towel", label: "BATH TOWELS", link: "/bath-linen#bath-towel" },
+  ];
 
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [openGroup, setOpenGroup] = useState(null); // mobile accordion
-  const [moreOpen, setMoreOpen] = useState(false); // desktop "More" dropdown
+  const [openDropdown, setOpenDropdown] = useState(null); // desktop "More" dropdown
   const closeTimeout = useRef(null);
 
   const toggleMenu = () => setMenuOpen((v) => !v);
   const toggleGroup = (key) => setOpenGroup((g) => (g === key ? null : key));
-
-  const openMore = () => {
+  const handleOpen = (menu) => {
     clearTimeout(closeTimeout.current);
-    setMoreOpen(true);
+    setOpenDropdown(menu);
   };
-  const closeMore = () => {
-    closeTimeout.current = setTimeout(() => setMoreOpen(false), 200);
+  const handleClose = () => {
+    closeTimeout.current = setTimeout(() => setOpenDropdown(null), 200);
   };
 
   return (
@@ -71,39 +84,57 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
+
           <div className="hidden md:flex items-center gap-8 text-[15px]">
-            <Link
-              to="/bedsheets"
-              onClick={() => setMenuOpen(false)}
-              className="uppercase tracking-wide font-semibold hover:text-[#9a4d2e] transition"
-            >
-              Bedsheets
-            </Link>
-
-            <Link
-              to="/bath-linen"
-              onClick={() => setMenuOpen(false)}
-              className="uppercase tracking-wide font-semibold hover:text-[#9a4d2e] transition"
-            >
-              Bath Towels
-            </Link>
-
-            {/* More dropdown */}
+            {/* BED LINEN */}
             <div
               className="relative"
-              onMouseEnter={openMore}
-              onMouseLeave={closeMore}
+              onMouseEnter={() => handleOpen("bed")}
+              onMouseLeave={handleClose}
             >
               <button className="uppercase tracking-wide flex items-center gap-1 font-semibold">
-                More{" "}
-                <FiChevronDown
-                  className={`transition-transform duration-300 ${
-                    moreOpen ? "rotate-180" : ""
-                  }`}
-                />
+                Bed Linen <FiChevronDown />
               </button>
 
-              {moreOpen && <DesktopMoreDropdown />}
+              {openDropdown === "bed" && (
+                <div className="absolute top-full">
+                  <DesktopMoreDropdown items={bedsheetsMenu} />
+                </div>
+              )}
+            </div>
+
+            {/* BATH LINEN */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleOpen("bath")}
+              onMouseLeave={handleClose}
+            >
+              <button className="uppercase tracking-wide flex items-center gap-1 font-semibold">
+                Bath Linen <FiChevronDown />
+              </button>
+
+              {openDropdown === "bath" && (
+                <div className="absolute top-full">
+                  <DesktopMoreDropdown items={bathLinenMenu} />
+                </div>
+              )}
+            </div>
+
+            {/* MORE */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleOpen("more")}
+              onMouseLeave={handleClose}
+            >
+              <button className="uppercase tracking-wide flex items-center gap-1 font-semibold">
+                More <FiChevronDown />
+              </button>
+
+              {openDropdown === "more" && (
+                <div className="absolute top-full">
+                  <DesktopMoreDropdown items={bedsheetsMenu} />
+                </div>
+              )}
             </div>
 
             <Link
@@ -295,7 +326,6 @@ export default function Navbar() {
             Contact Now
           </Link>
         </div>
-
       </div>
     </>
   );

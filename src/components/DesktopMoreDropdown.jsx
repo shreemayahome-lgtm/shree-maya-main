@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-const BRAND_BROWN = "#9a4d2e";
-
-export function DesktopMoreDropdown() {
+export function DesktopMoreDropdown({ items }) {
   return (
     <div
       className="
@@ -13,16 +11,10 @@ export function DesktopMoreDropdown() {
         opacity-100 translate-y-0
       "
     >
-      {[
-        ["pillows", "PILLOWS"],
-        ["pillow-covers", "PILLOW COVERS"],
-        ["duvets", "DUVETS"],
-        ["blankets", "BLANKETS"],
-        ["mats", "BATH MATS"],
-      ].map(([id, label]) => (
+      {items.map(({ id, label, link }) => (
         <Link
           key={id}
-          to={id === "mats" ? `/bath-linen#${id}` : `/bedsheets#${id}`}
+          to={link}
           className="block px-4 py-3 uppercase text-[14px] tracking-wide hover:text-white hover:bg-[#9a4d2e] transition-colors"
         >
           {label}

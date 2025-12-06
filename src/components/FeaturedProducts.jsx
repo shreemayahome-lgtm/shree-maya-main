@@ -4,45 +4,20 @@ import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
+import bedLinen from "../data/bedLinen";
+import bathLinen from "../data/bathLinen";
+
 const BRAND_BROWN = "#9a4d2e";
 
-const products = [
-  {
-    name: "King Size Bedsheet",
-    price: 520,
-    img: "/bg4.avif",
-    href: "/bedsheets#single-bedsheets",
-  },
-  {
-    name: "Queen Size Bedsheet",
-    price: 450,
-    img: "/bg.avif",
-    href: "/bedsheets#double-queen",
-  },
-  {
-    name: "Luxury Bath Towel (550 GSM)",
-    price: 240,
-    img: "/bg3.avif",
-    href: "/bath-linen#bath-towel",
-  },
-  {
-    name: "Hand Towel",
-    price: 80,
-    img: "/handtowel.avif",
-    href: "/bath-linen#hand-towel",
-  },
-  {
-    name: "Soft Microfiber Pillow",
-    price: 190,
-    img: "/pillows.avif",
-    href: "/bedsheets#pillows",
-  },
-  {
-    name: "Hotel Bath Mat (Anti-skid)",
-    price: 180,
-    img: "/bathMat.avif",
-    href: "/bath-linen#bath-mats",
-  },
+// pick any 6 products (3 bed + 3 bath for example)
+const allFeatured = [
+  // ...bedLinen.slice(0, 3), ...bathLinen.slice(0, 3)
+  bedLinen[3],
+  bedLinen[9],
+  bedLinen[12],
+  bathLinen[3],
+  bathLinen[8],
+  bathLinen[9],
 ];
 
 const fadeUp = {
@@ -50,24 +25,30 @@ const fadeUp = {
   show: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.08 * i, duration: 0.35 },
+    transition: { delay: 0.06 * i, duration: 0.3 },
   }),
+};
+
+// adjust this mapping to match your actual routes
+const getHref = (p) => {
+  if (p.type === "bedsheet") return `/bedsheets#${p.id}`;
+  if (p.type === "towel") return `/bath-linen#${p.collection}`;
+  if (p.type === "bath") return `/bath-linen#${p.collection}`;
+  if (p.type === "face") return `/bath-linen#${p.collection}`;
+  if (p.type === "hand") return `/bath-linen#${p.collection}`;
+  if (p.type === "pillowcase") return `/bath-linen#${p.collection}`;
+  if (p.type === "mat") return `/bath-linen#${p.collection}`;
+  return `/${p.type || "bedsheets"}#${p.collection}`;
+};
+
+const sendMessage = (name) => {
+  const whatsappNumber = "919004865002";
+  const message = `Hi, I would like to enquire about: ${name}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 };
 
 export default function FeaturedProducts() {
   const navigate = useNavigate();
-
-  const sendMessage = (name) => {
-    const whatsappNumber = "919004865002";
-    const message = `Hi, I would like to enquire about : ${name}`;
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-  };
-
-  const handleCardClick = (href) => {
-    navigate(href);
-  };
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-10 md:py-14">
@@ -79,73 +60,75 @@ export default function FeaturedProducts() {
         >
           Featured Products
         </h2>
-        <p className="font-lato text-black/70 mt-2 mb-2 md:mb-4 md:text-lg">
-          Bestsellers chosen by hotels & modern homes
+        <p className="font-lato text-black/70 mt-2 md:text-lg">
+          A quick look at our most-loved pieces
         </p>
       </div>
 
-      {/* Grid */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((p, i) => (
+      {/* Small, even cards */}
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allFeatured.map((p, i) => (
           <motion.div
-            key={p.name}
+            key={p.id}
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             custom={i}
-            className="group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-            onClick={() => handleCardClick(p.href)}
+            onClick={() => navigate(getHref(p))}
+            className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full overflow-hidden"
           >
             {/* Image */}
-            <div className="h-56 w-full overflow-hidden">
+            <div className="h-44 w-full overflow-hidden">
               <img
-                src={p.img}
-                alt={p.name}
+                src={p.images[0]}
+                alt={p.title}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            {/* Info */}
-            <div className="p-4">
-              <h3 className="font-playfair text-xl text-black">{p.name}</h3>
-              <p className="font-lato text-[15px] text-black/70 mt-1">
-                Starting <span className="font-semibold">₹{p.price}</span>
-              </p>
+            {/* Content */}
+            <div className="flex flex-col justify-between flex-1 p-4">
+              <div>
+                <h3 className="font-playfair text-lg text-black leading-snug">
+                  {p.title}
+                </h3>
 
-              <div className="mt-3 flex items-center justify-between">
-                <span className="font-poppins text-sm text-black/60">
+                <p className="font-lato text-xs text-black/60 mt-1">
+                  {p.description}
+                </p>
+
+                {p.sizes && (
+                  <p className="text-[11px] text-black/55 mt-2">
+                    Sizes:&nbsp;
+                    <span className="font-medium">
+                      {p.sizes.join(", ")}
+                    </span>
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-3 flex items-center justify-between text-xs text-black/60">
+                <span className="inline-flex items-center gap-1">
                   View details
+                  <FiArrowRight className="w-3 h-3" />
                 </span>
 
-                {/* Enquire Button */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    window.open(sendMessage(p.name), "_blank");
+                    window.open(sendMessage(p.title), "_blank");
                   }}
-                  className="inline-flex items-center gap-1 text-sm font-semibold"
+                  className="inline-flex items-center gap-1 font-semibold"
                   style={{ color: BRAND_BROWN }}
                 >
-                  Enquire <FiArrowRight />
+                  Enquire
+                  <FiArrowRight className="w-3 h-3" />
                 </button>
               </div>
             </div>
           </motion.div>
         ))}
-      </div>
-
-      {/* CTA */}
-      <div className="mt-10 flex justify-center">
-        <a
-          href="https://wa.me/919004865002"
-          className="font-poppins px-6 py-3 rounded-md text-white"
-          style={{ backgroundColor: BRAND_BROWN }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WhatsApp for Bulk Orders
-        </a>
       </div>
     </section>
   );

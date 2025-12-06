@@ -1,130 +1,82 @@
 const bathLinen = [
-    // FABRIC TYPES – STRIPE
+    //Bath Towels 
 {
-  title: "Maya ",
-  description: "220TC • 100% Cotton • Stripe Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain220TC.webp","/stripecloth-2.webp","/stripecloth.webp"]
+  title: "Maya SoftTouch ",
+	description: "450–500 GSM • Lightweight • Quick Dry Weave",
+  sizes: ["28×58", "30×60"],
+  images: ["/bath2.webp","/bath3.webp","/bath5.webp","/BATH3.jpg","/bath1.jpg"]
+   ,type: "bath",
 },
 {
-  title: "Satin Stripe 250TC Bed Sheet",
-  description: "250TC • 100% Cotton • Stripe Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/placeholder2.webp","/stripecloth-2.webp","/stripecloth.webp"]
+  title: "Maya LuxeDry ",
+	description: "500-600 GSM • Ultra Absorbent • Plush Comfort",
+  sizes: ["28×58", "30×60"],
+  images: ["/bath1.webp","/bath3.webp","/bath5.webp","/BATH3.jpg","/bath1.jpg"]
+   ,type: "bath",
 },
 {
-  title: "Satin Stripe 300TC Bed Sheet",
-  description: "300TC • 100% Cotton • Stripe Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/stripe300-1.webp","/stripecloth-2.webp", "/stripecloth.webp"]
+  title: "Maya SpaPlush ",
+	description: "650-750 GSM • Spa-Grade Plushness • Premium Cotton",
+  sizes: ["28×58", "30×60"],
+  images: ["/BATH7.jpg","/bath3.webp","/bath5.webp","/BATH3.jpg","/bath1.jpg"]
+   ,type: "bath",
 },
 {
-  title: "Satin Stripe 400TC Bed Sheet",
-  description: "400TC • 100% Cotton • Stripe Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain230TC.webp","/stripecloth-2.webp","/stripecloth.webp"]
+  title: "Maya Regal Luxe ",
+	description: "750-800 GSM • Supreme Softness • Hotel & Spa Quality",
+  sizes: ["28×58", "30×60"],
+  images: ["/BATH5.jpg","/bath3.webp","/bath5.webp","/BATH3.jpg","/bath1.jpg"]
+   ,type: "bath",
 },
-
-// FABRIC TYPES – PLAIN
+// polly cotton Bath towels 
 {
-  title: "Percale Plain 220TC Bed Sheet",
-  description: "220TC • 100% Cotton • Plain Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain220.webp","peracle-3.webp","peracle-2.webp"]
-},
-{
-  title: "Percale Plain 300TC Bed Sheet",
-  description: "300TC • 100% Cotton • Plain Weave",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain300.webp","peracle-3.webp","peracle-2.webp"]
+  title: "Maya PolySoft 350 GMS",
+  description: "PolyCotton Blend • Lightweight • Quick Dry",
+  sizes: ["28×58",],
+  images: ["/poly2.jpg","/pollybath2.webp","/pollybath1.webp"],
+  type: "pollybath",
 },
 {
-  title: "Satin Plain 400TC Bed Sheet",
-  description: "400TC • 100% Cotton • Satin Plain",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain400.webp","/satinCloth.webp"]
+  title: "Maya PolyLuxe 400 GMS",
+  description: "PolyCotton Blend • Smooth Comfort Feel • Quick Dry",
+  sizes: ["30×60",],
+  images: ["/poly4.jpg","/pollybath2.webp","/pollybath1.webp"],
+  type: "pollybath",
 },
 {
-  title: "Satin Plain 500TC Bed Sheet",
-  description: "500TC • 100% Cotton • Satin Plain",
-  sizes: ["60×90", "72×108", "90×108"],
-  images: ["/plain500.webp","/satinCloth.webp"]
-},
-// PILLOW COVERS — STRIPE
-{
-  title: "Stripe 220TC Pillow Cover",
-  description: "220TC • 100% Cotton • Stripe Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-stripe-220-1.webp"]
+  title: "Maya PolyLuxe 500 GMS",
+  description: "PolyCotton Blend • Smooth Comfort Feel • Quick Dry",
+  sizes: ["30×60",],
+  images: ["/poly5.jpg","/pollybath2.webp","/pollybath1.webp"],
+  type: "pollybath",
 },
 {
-  title: "Stripe 250TC Pillow Cover",
-  description: "250TC • 100% Cotton • Stripe Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-stripe-250-1.webp"]
+  title: "Maya HandSoft",
+  description: "Hand Towel • Soft & Quick Dry • Everyday Use",
+  sizes: ["16×24"],
+  images: ["/face4.jpg","/hand1.webp","hand2.webp"],
+  type: "hand",
 },
 {
-  title: "Stripe 300TC Pillow Cover",
-  description: "300TC • 100% Cotton • Stripe Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-stripe-300-1.webp"]
+  title: "Maya FacePure",
+  description: "Face Towel • Gentle Touch • Skin Friendly Cotton",
+  sizes: ["12×12","16×16"],
+  images: ["/face1.webp","/face4.jpg"],
+  type: "face",
 },
 {
-  title: "Stripe 400TC Pillow Cover",
-  description: "400TC • 100% Cotton • Stripe Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-stripe-400-1.jpg"]
-},
-
-// PILLOW COVERS — PLAIN
-{
-  title: "Plain 220TC Pillow Cover",
-  description: "220TC • 100% Cotton • Plain Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-plain-220-1.webp"]
+  title: "Maya BathMat Plush",
+  description: "Anti-Slip Bath Mat • Soft & Water Absorbent",
+  sizes: ["20×30 inches"],
+  images: ["/MAT1.jpg"],
+  type: "mat",
 },
 {
-  title: "Plain 300TC Pillow Cover",
-  description: "300TC • 100% Cotton • Plain Weave",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-plain-300-1.webp"]
-},
-{
-  title: "Plain 400TC Pillow Cover",
-  description: "400TC • 100% Cotton • Satin Plain",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-plain-400-1.webp","/pillow-plain-400-2.webp"]
-},
-{
-  title: "Plain 500TC Pillow Cover",
-  description: "500TC • 100% Cotton • Satin Plain",
-  sizes: ["17×27", "18×28"],
-  images: ["/pillow-plain-500-1.webp","/pillow-plain-500-2.webp"]
-},
-{
-  title: "Premium Conjugate Fibre Pillow",
-  description: "Firm support • Conjugate fibre fill",
-  sizes: ["Standard", "Big"],
-  images: ["/pillow-conjugate-1.webp"]
-},
-{
-  title: "Premium Micro Fibre Pillow",
-  description: "Soft comfort • Down-like micro fill",
-  sizes: ["Standard", "Big"],
-  images: ["/pillow-micro-1.webp"]
-},
-//Quilt Covers
-{
-  title: "Conjugate Fibre Quilt",
-  description: "Warm & breathable • All-season comfort",
-  sizes: ["60×90", "70×100", "90×100", "90×108", "100×108"],
-  images: ["/quilt-conjugate-1.webp","/quilt-conjugate-2.webp"]
-},
-{
-  title: "Micro Fibre Quilt",
-  description: "Ultra soft & hypoallergenic • All-season",
-  sizes: ["60×90", "70×100", "90×100", "90×108", "100×108"],
-  images: ["/quilt-micro-1.webp","/quilt-micro-2.webp"]
+  title: "Maya SpaRobe",
+  description: "Honeycomb • Plush Comfort • Soft & Cozy",
+  sizes: ["M","L","XL","XXL"],
+  images: ["/robe5.jpg"],
+  type: "robe",
 },
   ];
 

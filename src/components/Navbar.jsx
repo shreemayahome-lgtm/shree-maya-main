@@ -41,13 +41,20 @@ export default function Navbar() {
       label: "PILLOW CASES",
       link: "/bedsheets#pillow-cases",
     },
-    { id: "duvets", label: "DUVETS", link: "/bedsheets#duvets" },
+    { id: "duvet-covers", label: "DUVET COVERS", link: "/bedsheets#duvet-covers" },
     { id: "pillows", label: "PILLOWS", link: "/bedsheets#pillows" },
+    { id: "duvets", label: "DUVETS", link: "/bedsheets#duvets" },
+
   ];
 
   const bathLinenMenu = [
-    { id: "mats", label: "BATH MATS", link: "/bath-linen#mats" },
-    { id: "bath-towel", label: "BATH TOWELS", link: "/bath-linen#bath-towel" },
+    { id: "bath-towel", label: "BATH TOWELS", link: "/bath-linen#bath" },
+    { id: "face", label: "FACE TOWELS", link: "/bath-linen#face" },
+    { id: "hand", label: "HAND TOWELS", link: "/bath-linen#hand" },
+
+    { id: "mat", label: "BATH MATS", link: "/bath-linen#mat" },
+    { id: "robe", label: "BATHROBE", link: "/bath-linen#robe" },
+    
   ];
 
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
@@ -121,7 +128,7 @@ export default function Navbar() {
             </div>
 
             {/* MORE */}
-            <div
+            {/* <div
               className="relative"
               onMouseEnter={() => handleOpen("more")}
               onMouseLeave={handleClose}
@@ -135,7 +142,7 @@ export default function Navbar() {
                   <DesktopMoreDropdown items={bedsheetsMenu} />
                 </div>
               )}
-            </div>
+            </div> */}
 
             <Link
               to="tel:+919104865002"
@@ -167,7 +174,7 @@ export default function Navbar() {
             className="w-full flex items-center justify-between py-3 border-b font-semibold tracking-wide uppercase text-[15px]"
             style={{ color: BRAND_BROWN }}
           >
-            Bedsheets
+Bed Linen
             <FiChevronDown
               className={`${
                 openGroup === "bedsheets" ? "rotate-180" : ""
@@ -177,36 +184,84 @@ export default function Navbar() {
           {openGroup === "bedsheets" && (
             <div className="pl-3 pt-2 pb-1 flex flex-col gap-1">
               <Link
-                to="/bedsheets#single-bedsheets"
+                to="/bedsheets#bedstripe"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
-                Single Bed Sheets
+Stripe Collection
               </Link>
               <Link
-                to="/bedsheets#double-queen"
+                to="/bedsheets#bedplain"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
-                Double Bed Sheets (Queen)
+PLAIN collection
               </Link>
               <Link
-                to="/bedsheets#double-king"
+                to="/bedsheets#pillowstripe"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
-                Double Bed Sheets (King)
+STRiped Pillow cases
+              </Link>
+              <Link
+                to="/bedsheets#pillowplain"
+                onClick={() => setMenuOpen(false)}
+                className="py-2 uppercase text-sm tracking-wide"
+              >
+plain pillow cases
+              </Link>
+              
+            </div>
+          )}
+
+          
+
+          {/* DUVETS AND COMFORTERS */}
+          <button
+            onClick={() => toggleGroup("comfort")}
+            className="w-full flex items-center justify-between py-3 border-b font-semibold tracking-wide uppercase text-[15px] mt-2"
+            style={{ color: BRAND_BROWN }}
+          >
+            DUVETS & COMFORTERS
+            <FiChevronDown
+              className={`${
+                openGroup === "comfort" ? "rotate-180" : ""
+              } transition`}
+            />
+          </button>
+          {openGroup === "comfort" && (
+            <div className="pl-3 pt-2 pb-1 flex flex-col gap-1">
+              <Link
+                to="/bedsheets#duvetstriped"
+                onClick={() => setMenuOpen(false)}
+                className="py-2 uppercase text-sm tracking-wide"
+              >
+Striped Duvetcovers
+              </Link>
+              <Link
+                to="/bedsheets#duvetsplain"
+                onClick={() => setMenuOpen(false)}
+                className="py-2 uppercase text-sm tracking-wide"
+              >
+plain duvetcovers
               </Link>
               <Link
                 to="/bedsheets#duvets"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
-                Duvet Covers
+duvets
               </Link>
-            </div>
+              <Link
+                to="/bedsheets#pillows"
+                onClick={() => setMenuOpen(false)}
+                className="py-2 uppercase text-sm tracking-wide"
+              >
+Pillows
+              </Link>
+              </div>
           )}
-
           {/* BATH TOWELS */}
           <button
             onClick={() => toggleGroup("towels")}
@@ -223,28 +278,35 @@ export default function Navbar() {
           {openGroup === "towels" && (
             <div className="pl-3 pt-2 pb-1 flex flex-col gap-1">
               <Link
-                to="/bath-linen#bath-towel"
+                to="/bath-linen#bath"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
                 Bath Towel
               </Link>
               <Link
-                to="/bath-linen#hand-towel"
+                to="/bath-linen#hand"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
                 Hand Towel
               </Link>
               <Link
-                to="/bath-linen#face-towel"
+                to="/bath-linen#face"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
                 Face Towel
               </Link>
               <Link
-                to="/bath-linen#bathrobe"
+                to="/bath-linen#mat"
+                onClick={() => setMenuOpen(false)}
+                className="py-2 uppercase text-sm tracking-wide"
+              >
+BATH mats
+              </Link>
+              <Link
+                to="/bath-linen#robe"
                 onClick={() => setMenuOpen(false)}
                 className="py-2 uppercase text-sm tracking-wide"
               >
@@ -253,68 +315,15 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* BEDDING */}
-          <button
-            onClick={() => toggleGroup("comfort")}
-            className="w-full flex items-center justify-between py-3 border-b font-semibold tracking-wide uppercase text-[15px] mt-2"
-            style={{ color: BRAND_BROWN }}
-          >
-            Bedding & Comfort
-            <FiChevronDown
-              className={`${
-                openGroup === "comfort" ? "rotate-180" : ""
-              } transition`}
-            />
-          </button>
-          {openGroup === "comfort" && (
-            <div className="pl-3 pt-2 pb-1 flex flex-col gap-1">
-              <Link
-                to="/bedsheets#pillow-covers"
-                onClick={() => setMenuOpen(false)}
-                className="py-2 uppercase text-sm tracking-wide"
-              >
-                Pillows
-              </Link>
-              <Link
-                to="/bedsheets#pillow-covers"
-                onClick={() => setMenuOpen(false)}
-                className="py-2 uppercase text-sm tracking-wide"
-              >
-                Pillow Covers
-              </Link>
-              <Link
-                to="/bedsheets#duvets"
-                onClick={() => setMenuOpen(false)}
-                className="py-2 uppercase text-sm tracking-wide"
-              >
-                Single Duvet
-              </Link>
-              <Link
-                to="/bedsheets#duvets"
-                onClick={() => setMenuOpen(false)}
-                className="py-2 uppercase text-sm tracking-wide"
-              >
-                Comforters
-              </Link>
-              <Link
-                to="#blankets"
-                onClick={() => setMenuOpen(false)}
-                className="py-2 uppercase text-sm tracking-wide"
-              >
-                Blankets
-              </Link>
-            </div>
-          )}
-
           {/* ONE ITEM CATEGORY */}
-          <Link
+          {/* <Link
             to="/bath-linen#mats"
             onClick={() => setMenuOpen(false)}
             className="block py-4 border-b uppercase font-semibold tracking-wide text-[15px] mt-2"
             style={{ color: BRAND_BROWN }}
           >
             Bath Mats
-          </Link>
+          </Link> */}
 
           {/* CONTACT BUTTON */}
           <Link

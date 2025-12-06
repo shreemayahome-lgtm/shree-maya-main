@@ -1,97 +1,89 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { MoreCategoryCard } from "./MoreCategoryCard";
 
-const BRAND_BROWN = "#9a4d2e";
-
-const categories = [
+const items = [
   {
-    title: "Bath Mats",
-    image: "/bathMat.avif",
-    link: "/bath-linen#mats",
-    description: "Soft & absorbent for hotel & home bathrooms.",
-  },
-  {
-    title: "Pillows",
-    image: "/pillows.avif",
-    link: "/bedsheets#pillow-covers",
-    description: "Premium fill, perfect support & comfort.",
-  },
-  {
-    title: "Pillow Covers",
-    image: "/pillowCovers.avif",
-    link: "/bedsheets#pillow-covers",
-    description: "Smooth fabrics crafted for durability.",
-  },
-  {
-    title: "Blankets",
-    image: "/blankets.avif",
+    id: "duvet-micro",
+    type: "Duvet",
+    title: "Micro Fibre Quilt",
+    description: "Ultra soft & hypoallergenic. All-season. Light weight",
+    sizes: ["60×90", "90×100", "108×108"],
+    images: ["/quilt-micro-1.webp", "/quilt-micro-2.webp"],
+    startingFrom: 1999,
     link: "/bedsheets#duvets",
-    description: "Warm, breathable & hotel-grade.",
   },
   {
-    title: "Duvets",
-    image: "/duvets.avif",
-    link: "/bedsheets#duvets",
-    description: "Soft-touch duvets curated for hospitality.",
+    id: "duvet-classic",
+    type: "Duvet Covers",
+    title: "Classic Fill Duvet",
+    description: "Plush comfort. Machine washable. Hotel grade",
+    sizes: ["Single", "Queen", "King"],
+    images: ["/duvets.avif"],
+    startingFrom: 1499,
+    link: "/bedsheets#duvet-covers",
   },
   {
-    title: "Comforters",
-    image: "/extra.avif",
-    link: "/bedsheets#duvets",
-    description: "Luxurious and lightweight layering comfort.",
+    id: "pillow-soft",
+    type: "Pillow",
+    title: "Soft Microfiber Pillow",
+    description: "Neck support. Soft yet firm. Everyday comfort",
+    sizes: ["16×24", "17×27"],
+    images: ["/pillows.avif"],
+    startingFrom: 199,
+    link: "/bedsheets#pillows",
+  },
+  {
+    id: "towels",
+    type: "Towel",
+    title: "Hand & Face Towels",
+    description: "Quick dry. Skin friendly. Everyday use",
+    sizes: ["30×30", "40×60"],
+    images: ["/BATH7.jpg"],
+    startingFrom: 199,
+    link: "/bath-linen#bath",
+  },
+  {
+    id: "bath-mat",
+    type: "Mat",
+    title: "Anti-Skid Bath Mat",
+    description: "Anti-skid base. Soft pile. Fast drying",
+    sizes: ["40×60", "50×80"],
+    images: ["/bathMat.avif"],
+    startingFrom: 159,
+    link: "/bath-linen#mat",
+  },
+  {
+    id: "robe-cotton",
+    type: "Robe",
+    title: "Cotton Bathrobe",
+    description: "Plush terry. Cozy wrap. Unisex fit",
+    sizes: ["M", "L", "XL"],
+    images: ["/robe5.jpg"],
+    startingFrom: 999,
+    link: "/bath-linen#robe",
   },
 ];
 
 export default function MoreCategories() {
-  const [active, setActive] = useState(null);
-
   return (
-    <section className="max-w-7xl mx-auto px-6 py-7">
+    <section className="max-w-7xl mx-auto px-6 py-10 md:py-12">
       <h2
         className="font-playfair text-center text-3xl md:text-5xl tracking-wide"
-        style={{ color: BRAND_BROWN }}
+        style={{ color: "#9a4d2e" }}
       >
         More Comfort Essentials
       </h2>
 
       <p className="text-center text-black/60 mt-2 md:text-lg">
-        Carefully Designed for Hotels, Homes & Hospitality Spaces
+        Duvets, pillows, mats & more crafted for hotels and homes
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-14">
-        {categories.map((cat, index) => (
-          <Link
-            to={cat.link}
-            key={index}
-            className="relative group h-[260px] rounded-xl overflow-hidden cursor-pointer block"
-          >
-            <motion.img
-              src={cat.image}
-              className="w-full h-full object-cover transition-transform duration-500"
-              animate={{
-                scale: active === index ? 1.1 : 1,
-              }}
-            />
-
-            {/* Overlay */}
-            <motion.div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition" />
-
-            {/* Title */}
-            <motion.h3
-              className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white font-semibold  font-playfair tracking-wide"
-              animate={{
-                fontSize: active === index ? "2.3rem" : "1.8rem",
-                letterSpacing: active === index ? "0.03em" : "0.01em",
-              }}
-            >
-              {cat.title}
-            </motion.h3>
-          </Link>
-        ))}
-      </div>
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-items-center">
+  {items.map((item) => (
+    <MoreCategoryCard key={item.id} item={item} />
+  ))}
+</div>
     </section>
   );
 }

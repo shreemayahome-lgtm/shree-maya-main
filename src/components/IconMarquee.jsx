@@ -2,23 +2,19 @@ import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
 const bedIcons = [
-  { name: "Bedsheet", icon: "🛏️", link: "/bedsheets#single-bedsheets" },
-  { name: "Pillow Cover", icon: "🛌", link: "/bedsheets#pillow-covers" },
-  { name: "Pillow", icon: "☁️", link: "/bedsheets#single-bedsheets" },
-  { name: "Cushion", icon: "🧸", link: "/bedsheets#single-bedsheets" },
-  { name: "Duvet & Comforter", icon: "🛌", link: "/bedsheets#duvets" },
-  { name: "Duvet Cover", icon: "🧵", link: "/bedsheets#duvets" },
-  {
-    name: "Mattress Protector",
-    icon: "🪄",
-    link: "/bedsheets#mattress-protector",
-  },
-  { name: "Pillow Protector", icon: "🛡️", link: "/bedsheets#pillow-protector" },
-  { name: "Bath Towel", icon: "🧺", link: "/bath-linen#bath-towel" },
-  { name: "Hand Towel", icon: "🧻", link: "/bath-linen#hand-towel" },
-  { name: "Face Towel", icon: "🪥", link: "/bath-linen#face-towel" },
-  { name: "Pool Towel", icon: "🌊", link: "/bath-linen#pool-towel" },
-  { name: "Bath Mat", icon: "𐃅", link: "/bath-linen#bath-mat" },
+  // -------- BED LINEN --------
+  { name: "Bed Sheets", icon: "🛏️", link: "/bedsheets#bedsheets" },
+  { name: "Pillow Cases", icon: "🛌", link: "/bedsheets#pillow-cases" },
+  { name: "Duvet Covers", icon: "🧵", link: "/bedsheets#duvet-covers" },
+  { name: "Duvets", icon: "☁️", link: "/bedsheets#duvets" },
+  { name: "Pillows", icon: "🛏️", link: "/bedsheets#pillows" },
+
+  // -------- BATH LINEN --------
+  { name: "Bath Towels", icon: "🧺", link: "/bath-linen#bath" },
+  { name: "Face Towels", icon: "🪥", link: "/bath-linen#face" },
+  { name: "Hand Towels", icon: "🖐️", link: "/bath-linen#hand" },
+  { name: "Bath Mats", icon: "🚿", link: "/bath-linen#mat" },
+  { name: "Bath Robe", icon: "🧖‍♂️", link: "/bath-linen#robe" }
 ];
 
 export default function IconMarquee() {

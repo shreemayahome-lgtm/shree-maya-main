@@ -5,8 +5,10 @@ import ProductCard2 from "../components/ProductCard2";
 import ProductDetailsModal from "../components/ProductDetailsModal";
 import { useLocation } from "react-router-dom";
 import bedLinen from "../data/bedLinen";
+import { Link } from "react-router-dom";
 
 export default function BedsheetsPage() {
+
   const location = useLocation();
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -29,9 +31,33 @@ export default function BedsheetsPage() {
     };
   }, [location]);
 
+  // ✅ Grouping via type + collection instead of index slices
+  const bedsheetStripe = bedLinen.filter(
+    (p) => p.type === "bedsheet" && p.collection === "stripe"
+  );
+  const bedsheetPlain = bedLinen.filter(
+    (p) => p.type === "bedsheet" && p.collection === "plain"
+  );
+
+  const pillowcaseStripe = bedLinen.filter(
+    (p) => p.type === "pillowcase" && p.collection === "stripe"
+  );
+  const pillowcasePlain = bedLinen.filter(
+    (p) => p.type === "pillowcase" && p.collection === "plain"
+  );
+
+  const pillows = bedLinen.filter((p) => p.type === "pillow");
+  const duvets = bedLinen.filter((p) => p.type === "duvet");
+  const duvetStripe = bedLinen.filter(
+    (p) => p.type === "duvet-cover" && p.collection === "stripe"
+  );
+  const duvetPlain = bedLinen.filter(
+    (p) => p.type === "duvet-cover" && p.collection === "plain"
+  );
+
   const renderProductCard = (product, index) => (
     <ProductCard2
-      key={index}
+      key={product.id || index}
       image={product.images ? product.images[0] : product.image}
       title={product.title}
       description={product.description}
@@ -40,16 +66,42 @@ export default function BedsheetsPage() {
   );
 
   return (
+    //Bedsheet Hero
     <PageFade>
-      <motion.div
-        layoutId="bedsheets-hero"
-        className="relative w-full h-[55vh] md:h-[70vh] rounded-b-3xl overflow-hidden"
-      >
-        <img src="/banner-4.avif" className="w-full h-full object-cover" />
-        <div className="font-heading  absolute bottom-15 md:bottom-8 left-3 md:left-30 text-[#6E3D2E] text-5xl md:text-6xl font-semibold">
-          Bedsheets Collection
+      <motion.div className="relative w-full h-[60vh] rounded-2xl overflow-hidden">
+      <img
+        src="/Banner2.jpg" // change to your bed hero image
+        alt="Luxe Bedding"
+        className="absolute w-full h-full object-cover"
+      />
+
+      <div className="absolute inset-0 bg-black/30" />
+
+      <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 text-white">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide">
+          Luxe Bedding
+        </h1>
+        <p className="mt-1 text-sm sm:text-base opacity-90">
+          Comfort crafted for dreamy nights.
+        </p>
+
+        <div className="mt-4 flex gap-2">
+          <Link
+to="#bedsheets"
+            className="px-4 py-1.5 rounded-full bg-white text-[#6E3D2E] text-sm font-medium"
+          >
+            Bedsheets
+          </Link>
+
+          <Link
+to="#duvet-covers"
+            className="px-4 py-1.5 rounded-full bg-white/90 text-[#6E3D2E] text-sm font-medium"
+          >
+            Duvet Covers
+          </Link>
         </div>
-      </motion.div>
+      </div>
+    </motion.div>
 
       <div className="px-6 py-12 overflow-visible">
         {/* Bedsheets */}
@@ -61,21 +113,24 @@ export default function BedsheetsPage() {
           <span className="absolute left-0 -bottom-2 w-2/3 h-[3px] bg-[#c9a17a] rounded-full"></span>
         </h2>
 
-        <p className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8">
+        <p 
+        id="bedstripe"
+         className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8">
           STRIPE COLLECTION
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(0, 4).map(renderProductCard)}
+          {bedsheetStripe.map(renderProductCard)}
         </div>
 
         <h3
+        id="bedplain"
           className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8"
           style={{ color: "#9a4d2e" }}
         >
           Plain Collection
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(4, 8).map(renderProductCard)}
+          {bedsheetPlain.map(renderProductCard)}
         </div>
 
         {/* Pillow Covers */}
@@ -87,29 +142,57 @@ export default function BedsheetsPage() {
           <span className="absolute left-0 -bottom-2 w-2/3 h-[3px] bg-[#c9a17a] rounded-full"></span>
         </h2>
 
-        
         <h3
-
+        id="pillowstripe"
           className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8"
           style={{ color: "#9a4d2e" }}
         >
           STRIPE COLLECTION
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(8, 12).map(renderProductCard)}
+          {pillowcaseStripe.map(renderProductCard)}
         </div>
 
         <h3
-
+        id="pillowplain"
           className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8"
           style={{ color: "#9a4d2e" }}
         >
           PLAIN COLLECTION
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(12, 16).map(renderProductCard)}
+          {pillowcasePlain.map(renderProductCard)}
         </div>
 
+        {/* Duvet Covers*/}
+
+        <h2
+          id="duvet-covers"
+          className="scroll-mt-[90px] mt-10 relative font-playfair text-4xl md:text-5xl font-bold text-[#6E3D2E] mb-2 inline-block"
+        >
+          Duvet Covers
+          <span className="absolute left-0 -bottom-2 w-2/3 h-[3px] bg-[#c9a17a] rounded-full"></span>
+        </h2>
+
+        <p
+        id="duvetstriped" 
+        className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8">
+          STRIPE COLLECTION
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {duvetStripe.map(renderProductCard)}
+        </div>
+
+        <h3
+        id="duvetsplain"
+          className="border-l-3 border-[#6E3D2E] pl-2 scroll-mt-[90px] text-[#6E3D2E] text-xl uppercase tracking-widest mb-4 mt-8"
+          style={{ color: "#9a4d2e" }}
+        >
+          Plain Collection
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
+          {duvetPlain.map(renderProductCard)}
+        </div>
         {/* Pillows */}
         <h2
           id="pillows"
@@ -120,9 +203,9 @@ export default function BedsheetsPage() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(16, 18).map(renderProductCard)}
+          {pillows.map(renderProductCard)}
         </div>
-        {/* Duvets */}
+        {/* Duvet */}
         <h2
           id="duvets"
           className="scroll-mt-[90px] mt-10 relative font-playfair text-4xl md:text-5xl font-bold text-[#6E3D2E] mb-2 inline-block"
@@ -132,10 +215,9 @@ export default function BedsheetsPage() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mt-8 place-items-center">
-          {bedLinen.slice(18, 20).map(renderProductCard)}
+          {duvets.map(renderProductCard)}
         </div>
-      </div>
-
+</div>
       {/* MODAL */}
       {selectedProduct && (
         <ProductDetailsModal
@@ -147,5 +229,6 @@ export default function BedsheetsPage() {
         />
       )}
     </PageFade>
+    
   );
 }

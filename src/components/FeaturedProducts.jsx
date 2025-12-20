@@ -56,12 +56,12 @@ export default function FeaturedProducts() {
       {/* Heading */}
       <div className="text-center">
         <h2
-          className="font-playfair text-3xl md:text-5xl tracking-wide"
+          className="font-heading text-[2.6rem] md:text-6xl tracking-wide"
           style={{ color: BRAND_BROWN }}
         >
           Featured Products
         </h2>
-        <p className="font-lato text-black/70 mt-2 md:text-lg">
+        <p className="font-lato text-black/70 md:mt-2 md:text-lg">
           A quick look at our most-loved pieces
         </p>
       </div>

@@ -91,15 +91,15 @@ export default function MoreCategories() {
   return (
     <>
     
-    <section className="max-w-7xl mx-auto px-6 py-10 md:py-12">
+    <section className="max-w-7xl mx-auto px-5 md:px-6 py-10 md:py-12">
       <h2
-        className="font-playfair text-center text-3xl md:text-5xl tracking-wide"
+        className="font-heading text-center text-[2.1rem] md:text-6xl tracking-wide"
         style={{ color: "#9a4d2e" }}
       >
         More Comfort Essentials
       </h2>
 
-      <p className="text-center text-black/60 mt-2 md:text-lg">
+      <p className="text-center text-black/60 md:mt-2 md:text-lg">
         Duvets, pillows, mats & more crafted for hotels and homes
       </p>
 
@@ -109,10 +109,10 @@ export default function MoreCategories() {
         ))}
       </div>
     </section>
-
-    <section className="max-w-7xl mx-auto px-15 py-10 md:py-12">
+    <section className="max-w-7xl mx-auto px-5 md:px-10 py-10 md:py-12 overflow-x-hidden">
+  
     <h2
-      className="font-playfair text-center text-3xl md:text-5xl tracking-wide"
+      className="font-heading text-center text-4xl md:text-6xl tracking-wide"
       style={{ color: "#9a4d2e" }}
     >
       Hotel Amenities
@@ -121,12 +121,13 @@ export default function MoreCategories() {
     <p className="text-center text-black/60 mt-2 md:text-lg">
       Customizable guest essentials for premium stays
     </p>
+    <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
+  {amenitiesItems.map((item) => (
+    <MoreCategoryCard key={item.id} item={item} />
+  ))}
+</div>
 
-    <div className="max-w-6xl mt-10 grid grid-cols-1 md:grid-cols-2 gap-15 items-stretch justify-items-center">
-      {amenitiesItems.map((item) => (
-        <MoreCategoryCard key={item.id} item={item} />
-      ))}
-    </div>
+      
   </section>
   
   </>

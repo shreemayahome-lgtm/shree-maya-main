@@ -27,7 +27,7 @@ export function MoreCategoryCard({ item }) {
     <Link
       key={id}
       to={link}
-      className="block bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow max-w-xl w-full h-full"
+      className="block bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow max-w-3xl w-full h-full"
     >
       <div className="flex flex-col h-full">
         {/* TOP ROW */}
@@ -59,7 +59,7 @@ export function MoreCategoryCard({ item }) {
         <div className="flex flex-1 border-b border-gray-200">
           {/* Image */}
           <div className="w-1/2 border-r border-gray-200">
-            <div className="h-full w-full overflow-hidden">
+            <div className="h-70 w-full overflow-hidden">
               <img
                 src={images[0]}
                 alt={title}
@@ -69,7 +69,7 @@ export function MoreCategoryCard({ item }) {
           </div>
 
           {/* Text beside image */}
-          <div className="w-1/2 px-5 py-4 flex flex-col justify-center gap-5">
+          <div className="w-1/2 px-3 md:px-5 py-4 flex flex-col justify-center gap-5">
             {/* Product title – more highlighted */}
             <h4 className="text-[20px] sm:text-[18px] font-semibold tracking-[0.18em] uppercase text-gray-700">
               {title}

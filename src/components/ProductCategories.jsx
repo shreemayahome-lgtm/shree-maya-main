@@ -27,7 +27,7 @@ export default function ProductCategories() {
     >
       {/* Section Heading */}
       <h2
-        className="font-playfair text-3xl md:text-5xl text-center tracking-wide"
+        className="font-heading text-5xl md:text-6xl text-center tracking-wide"
         style={{ color: "#9a4d2e" }}
       >
         Our Collections

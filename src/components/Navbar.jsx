@@ -57,6 +57,19 @@ export default function Navbar() {
     
   ];
 
+  const amenitiesMenu = [
+    {
+      id: "with-branding",
+      label: "WITH BRANDING",
+      link: "/amenities#with-branding",
+    },
+    {
+      id: "without-branding",
+      label: "WITHOUT BRANDING",
+      link: "/amenities#without-branding",
+    },
+  ];
+
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [openGroup, setOpenGroup] = useState(null); // mobile accordion
   const [openDropdown, setOpenDropdown] = useState(null); // desktop "More" dropdown
@@ -126,6 +139,22 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+            {/* AMENITIES */}
+<div
+  className="relative"
+  onMouseEnter={() => handleOpen("amenities")}
+  onMouseLeave={handleClose}
+>
+  <button className="uppercase tracking-wide flex items-center gap-1 font-semibold">
+    Amenities <FiChevronDown />
+  </button>
+
+  {openDropdown === "amenities" && (
+    <div className="absolute top-full">
+      <DesktopMoreDropdown items={amenitiesMenu} />
+    </div>
+  )}
+</div>
 
             {/* MORE */}
             {/* <div
@@ -314,6 +343,40 @@ BATH mats
               </Link>
             </div>
           )}
+          {/* AMENITIES */}
+<button
+  onClick={() => toggleGroup("amenities")}
+  className="w-full flex items-center justify-between py-3 border-b font-semibold tracking-wide uppercase text-[15px] mt-2"
+  style={{ color: BRAND_BROWN }}
+>
+  Amenities
+  <FiChevronDown
+    className={`${
+      openGroup === "amenities" ? "rotate-180" : ""
+    } transition`}
+  />
+</button>
+
+{openGroup === "amenities" && (
+  <div className="pl-3 pt-2 pb-1 flex flex-col gap-1">
+    <Link
+      to="/amenities#with-branding"
+      onClick={() => setMenuOpen(false)}
+      className="py-2 uppercase text-sm tracking-wide"
+    >
+      With Branding
+    </Link>
+
+    <Link
+      to="/amenities#without-branding"
+      onClick={() => setMenuOpen(false)}
+      className="py-2 uppercase text-sm tracking-wide"
+    >
+      Without Branding
+    </Link>
+  </div>
+)}
+          
 
           {/* ONE ITEM CATEGORY */}
           {/* <Link

@@ -11,10 +11,15 @@ const bedIcons = [
 
   // -------- BATH LINEN --------
   { name: "Bath Towels", icon: "🧺", link: "/bath-linen#bath" },
-  { name: "Face Towels", icon: "🪥", link: "/bath-linen#face" },
+  { name: "Face Towels", icon: "🧻", link: "/bath-linen#face" },
   { name: "Hand Towels", icon: "🖐️", link: "/bath-linen#hand" },
   { name: "Bath Mats", icon: "🚿", link: "/bath-linen#mat" },
-  { name: "Bath Robe", icon: "🧖‍♂️", link: "/bath-linen#robe" }
+  { name: "Bath Robe", icon: "🧖‍♂️", link: "/bath-linen#robe" },
+
+  //---amenities 
+  { name: "Shaving Kit", icon: "🪒", link: "/amenities/#with-branding" },
+  { name: "Shampoo", icon: "🧴", link: "/amenities/#without-branding" },
+  { name: "Dental Kit", icon: "🪥", link: "/amenities/#without-branding" }
 ];
 
 export default function IconMarquee() {

@@ -27,7 +27,7 @@ export function MoreCategoryCard({ item }) {
     <Link
       key={id}
       to={link}
-      className="block bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow max-w-3xl w-full h-full"
+      className="block bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow max-w-xl w-full h-full"
     >
       <div className="flex flex-col h-full">
         {/* TOP ROW */}

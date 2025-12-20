@@ -6,6 +6,7 @@ import ProductCategories from "../components/ProductCategories";
 import MoreCategories from "../components/MoreCategories";
 import FeaturedProducts from "../components/FeaturedProducts";
 import IconMarquee from "../components/IconMarquee";
+import AmenitiesPage from "../pages/AmenitiesPage.jsx";
 
 export default function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ export default function AppRoutes() {
       {/* PRODUCT CATEGORY PAGES */}
       <Route path="/bedsheets" element={<BedsheetsPage />} />
       <Route path="/bath-linen" element={<BathLinenPage />} />
+      <Route path="/amenities" element={<AmenitiesPage />} />
     </Routes>
   );
 }

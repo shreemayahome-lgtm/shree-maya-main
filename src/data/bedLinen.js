@@ -222,7 +222,7 @@ const bedLinen = [
 
 {
   id: "bs-stripe-250",
-  title: "Satin Stripe 250TC Bedsheet",
+  title: "Satin Stripe 250TC Duvet Cover",
   description: "250TC • 100% Cotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/placeholder2.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
@@ -231,7 +231,7 @@ const bedLinen = [
 },
 {
   id: "bs-stripe-301",
-  title: "Satin Stripe 300TC Bedsheet",
+  title: "Satin Stripe 300TC Duvet Cover",
   description: "300TC • 100% Cotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/stripe300-1.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
@@ -240,7 +240,7 @@ const bedLinen = [
 },
 {
   id: "bs-stripe-400",
-  title: "Satin Stripe 400TC Bedsheet",
+  title: "Satin Stripe 400TC Duvet Cover",
   description: "400TC • 100% Cotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/plain230TC.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
@@ -249,7 +249,7 @@ const bedLinen = [
 },
 {
   id: "bs-stripe-500",
-  title: "Satin Stripe 500TC Bedsheet",
+  title: "Satin Stripe 500TC Duvet Cover",
   description: "500TC • 100% Cotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/plain230TC.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
@@ -260,7 +260,7 @@ const bedLinen = [
 // pollycotton Duvet COvers 
 {
   id: "bs-stripe-220",
-  title: "Pollycotton Stripe 220TC Duvet Covers",
+  title: "Pollycotton Stripe 220TC Duvet Cover",
   description: "250TC • Pollycotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/placeholder2.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
@@ -269,7 +269,7 @@ const bedLinen = [
 },
 {
   id: "bs-stripe-302",
-  title: "Pollycotton Stripe 300TC Duvet Covers",
+  title: "Pollycotton Stripe 300TC Duvet Cover",
   description: "300TC • Pollycotton • Stripe Weave",
   sizes: ["60×90", "90×100", "108×108"],
   images: ["/stripe300-1.webp", "/stripecloth-2.webp", "/stripecloth.webp"],

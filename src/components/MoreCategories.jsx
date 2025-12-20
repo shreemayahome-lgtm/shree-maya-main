@@ -64,9 +64,33 @@ const items = [
     link: "/bath-linen#robe",
   },
 ];
+const amenitiesItems = [
+  {
+    id: "amenities-with-branding",
+    type: "Amenities",
+    title: "Amenities with Branding",
+    description: "Hotel logo. Custom packing. Premium presentation",
+    sizes: ["Custom Packs"],
+    images: ["/banner21.jpg"],
+    startingFrom: 10,
+    link: "/amenities#with-branding",
+  },
+  {
+    id: "amenities-without-branding",
+    type: "Amenities",
+    title: "Amenities without Branding",
+    description: "Plain packing. Cost effective. Bulk supply",
+    sizes: ["Standard Packs"],
+    images: ["/banner26.jpg"],
+    startingFrom: 8,
+    link: "/amenities#without-branding",
+  },
+];
 
 export default function MoreCategories() {
   return (
+    <>
+    
     <section className="max-w-7xl mx-auto px-6 py-10 md:py-12">
       <h2
         className="font-playfair text-center text-3xl md:text-5xl tracking-wide"
@@ -79,11 +103,32 @@ export default function MoreCategories() {
         Duvets, pillows, mats & more crafted for hotels and homes
       </p>
 
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-items-center">
-  {items.map((item) => (
-    <MoreCategoryCard key={item.id} item={item} />
-  ))}
-</div>
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
+        {items.map((item) => (
+          <MoreCategoryCard key={item.id} item={item} />
+        ))}
+      </div>
     </section>
+
+    <section className="max-w-7xl mx-auto px-15 py-10 md:py-12">
+    <h2
+      className="font-playfair text-center text-3xl md:text-5xl tracking-wide"
+      style={{ color: "#9a4d2e" }}
+    >
+      Hotel Amenities
+    </h2>
+  
+    <p className="text-center text-black/60 mt-2 md:text-lg">
+      Customizable guest essentials for premium stays
+    </p>
+
+    <div className="max-w-6xl mt-10 grid grid-cols-1 md:grid-cols-2 gap-15 items-stretch justify-items-center">
+      {amenitiesItems.map((item) => (
+        <MoreCategoryCard key={item.id} item={item} />
+      ))}
+    </div>
+  </section>
+  
+  </>
   );
 }

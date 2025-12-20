@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import bedLinen from "../data/bedLinen";
 import bathLinen from "../data/bathLinen";
+import amenities from "../data/amenities";
 
 const BRAND_BROWN = "#9a4d2e";
 
@@ -16,7 +17,7 @@ const allFeatured = [
   bedLinen[9],
   bedLinen[12],
   bathLinen[3],
-  bathLinen[8],
+  amenities[6],
   bathLinen[9],
 ];
 
@@ -34,7 +35,7 @@ const getHref = (p) => {
   if (p.type === "bedsheet") return `/bedsheets#${p.id}`;
   if (p.type === "towel") return `/bath-linen#${p.collection}`;
   if (p.type === "bath") return `/bath-linen#${p.collection}`;
-  if (p.type === "face") return `/bath-linen#${p.collection}`;
+  if (p.type === "packaging") return `/amenities`;
   if (p.type === "hand") return `/bath-linen#${p.collection}`;
   if (p.type === "pillowcase") return `/bath-linen#${p.collection}`;
   if (p.type === "mat") return `/bath-linen#${p.collection}`;

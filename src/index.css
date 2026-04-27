@@ -28,7 +28,14 @@ body {
 .font-heading {
   font-family: var(--font-heading);
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 /* Smooth scrolling for hash links */
 /* html {
   scroll-behavior: smooth;

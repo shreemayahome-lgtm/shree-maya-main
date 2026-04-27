@@ -71,7 +71,7 @@ export function MoreCategoryCard({ item }) {
           {/* Text beside image */}
           <div className="w-1/2 px-3 md:px-5 py-4 flex flex-col justify-center gap-5">
             {/* Product title – more highlighted */}
-            <h4 className="text-[20px] sm:text-[18px] font-semibold tracking-[0.18em] uppercase text-gray-700">
+            <h4 className="text-[20px] sm:text-[18px] font-semibold tracking-[0.12em] uppercase text-gray-700">
               {title}
             </h4>
 

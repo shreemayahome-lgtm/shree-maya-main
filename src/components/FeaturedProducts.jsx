@@ -32,14 +32,14 @@ const fadeUp = {
 
 // adjust this mapping to match your actual routes
 const getHref = (p) => {
-  if (p.type === "bedsheet") return `/bedsheets#${p.id}`;
-  if (p.type === "towel") return `/bath-linen#${p.collection}`;
-  if (p.type === "bath") return `/bath-linen#${p.collection}`;
-  if (p.type === "packaging") return `/amenities`;
-  if (p.type === "hand") return `/bath-linen#${p.collection}`;
-  if (p.type === "pillowcase") return `/bath-linen#${p.collection}`;
-  if (p.type === "mat") return `/bath-linen#${p.collection}`;
-  return `/${p.type || "bedsheets"}#${p.collection}`;
+  if (p.type === "bedsheet") return `/bedsheets#${p.type}s`;
+  if (p.type === "towel") return `/bath-linen#${p.type}`;
+  if (p.type === "bath") return `/bath-linen#${p.type}`;
+  if (p.type === "packaging") return `/amenities#with-branding`;
+  if (p.type === "hand") return `/bath-linen#${p.type}`;
+  if (p.type === "pillowcase") return `/bedsheets#pillow-cases`;
+  if (p.type === "mat") return `/bath-linen#${p.type}`;
+  return `/${p.type || "bedsheets"}#${p.type}`;
 };
 
 const sendMessage = (name) => {
@@ -67,69 +67,69 @@ export default function FeaturedProducts() {
       </div>
 
       {/* Small, even cards */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {allFeatured.map((p, i) => (
-          <motion.div
-            key={p.id}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={i}
-            onClick={() => navigate(getHref(p))}
-            className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full overflow-hidden"
-          >
-            {/* Image */}
-            <div className="h-44 w-full overflow-hidden">
-              <img
-                src={p.images[0]}
-                alt={p.title}
-                className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+      <div className="mt-10">
+        <div className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-1">
+          {allFeatured.map((p, i) => (
+            <motion.div
+              key={p.id}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={i}
+              onClick={() => navigate(getHref(p))}
+              className="group min-w-[260px] md:min-w-[300px] bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col overflow-hidden"
+            >
+              {/* Image */}
+              <div className="h-44 w-full overflow-hidden">
+                <img
+                  src={p.images?.[0]}
+                  alt={p.title}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
 
-            {/* Content */}
-            <div className="flex flex-col justify-between flex-1 p-4">
-              <div>
-                <h3 className="font-playfair text-lg text-black leading-snug">
-                  {p.title}
-                </h3>
+              {/* Content */}
+              <div className="flex flex-col justify-between flex-1 p-4">
+                <div>
+                  <h3 className="font-playfair text-lg text-black leading-snug">
+                    {p.title}
+                  </h3>
 
-                <p className="font-lato text-xs text-black/60 mt-1">
-                  {p.description}
-                </p>
-
-                {p.sizes && (
-                  <p className="text-[11px] text-black/55 mt-2">
-                    Sizes:&nbsp;
-                    <span className="font-medium">
-                      {p.sizes.join(", ")}
-                    </span>
+                  <p className="font-lato text-xs text-black/60 mt-1">
+                    {p.description}
                   </p>
-                )}
-              </div>
 
-              <div className="mt-3 flex items-center justify-between text-xs text-black/60">
-                <span className="inline-flex items-center gap-1">
-                  View details
-                  <FiArrowRight className="w-3 h-3" />
-                </span>
+                  {p.sizes && (
+                    <p className="text-[11px] text-black/55 mt-2">
+                      Sizes:&nbsp;
+                      <span className="font-medium">{p.sizes.join(", ")}</span>
+                    </p>
+                  )}
+                </div>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(sendMessage(p.title), "_blank");
-                  }}
-                  className="inline-flex items-center gap-1 font-semibold"
-                  style={{ color: BRAND_BROWN }}
-                >
-                  Enquire
-                  <FiArrowRight className="w-3 h-3" />
-                </button>
+                <div className="mt-3 flex items-center justify-between text-xs text-black/60">
+                  <span className="inline-flex items-center gap-1">
+                    View details
+                    <FiArrowRight className="w-3 h-3" />
+                  </span>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(sendMessage(p.title), "_blank");
+                    }}
+                    className="inline-flex items-center gap-1 font-semibold"
+                    style={{ color: BRAND_BROWN }}
+                  >
+                    Enquire
+                    <FiArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

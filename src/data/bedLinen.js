@@ -1,15 +1,60 @@
 const bedLinen = [
   // FABRIC TYPES – STRIPE (Bedsheets)
+    {
+      id: "bs-stripe-250",
+      title: "Satin Stripe 250TC Bedsheet",
+      description: "100% Cotton • 250TC • Stripe Weave",
+      sizes: ["60×90", "90×100", "108×108"],
+      type: "bedsheet",
+      collection: "stripe",
   
-  {
-    id: "bs-stripe-250",
-    title: "Satin Stripe 250TC Bedsheet",
-    description: "100% Cotton • 250TC • Stripe Weave",
-    sizes: ["60×90", "90×100", "108×108"],
-    images: ["/placeholder2.webp", "/stripecloth-2.webp", "/stripecloth.webp"],
-    type: "bedsheet",
-    collection: "stripe",
-  },
+      // default images (fallback)
+      images: ["/blue1.webp"],
+  
+      // ✅ NEW COLORS DATA
+      colors: [
+        {
+          name: "blue",
+          code: "#1E3A8A",
+          images: [
+            "/blue1.webp",
+            
+          ],
+        },
+        {
+          name: "olive",
+          code: "#5A7D4D",
+          images: [
+            "/olive.webp",
+
+          ],
+        },
+        {
+          name: "coral",
+          code: "#F2AFA3",
+          images: [
+            "/coral.webp",
+
+          ],
+        },
+        {
+          name: "sky blue",
+          code: "#6EC1E4",
+          images: [
+            "/skyblue.webp",
+
+          ],
+        },
+        {
+          name: "black",
+          code: "#2B2B2B",
+          images: [
+            "/black.webp",
+
+          ],
+        },
+      ],
+    },
   {
     id: "bs-stripe-300",
     title: "Satin Stripe 300TC Bedsheet",

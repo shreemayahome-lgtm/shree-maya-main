@@ -18,8 +18,9 @@ export default function AppRoutes() {
             <HeroSection />
             <ProductCategories />
             <IconMarquee />
-            <FeaturedProducts />
+            
             <MoreCategories />
+            <FeaturedProducts />
           </>
         }
       />

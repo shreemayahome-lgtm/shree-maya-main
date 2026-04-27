@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import WhyChooseUs from "./components/WhyChooseUs";
 import ExploreMore from "./components/ExploreMore";
 import { useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/next"
 export default function App() {
   const location = useLocation();
   return (

@@ -19,6 +19,7 @@ const bedLinen = [
           images: [
             "/blue1.webp",
             
+            
           ],
         },
         {

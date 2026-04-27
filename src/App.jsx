@@ -15,6 +15,7 @@ export default function App() {
       {location.pathname !== "/" && <ExploreMore />}
 <WhyChooseUs/>
       <Footer />
+      <Analytics />
     </div>
   );
 }
